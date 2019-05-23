@@ -4,7 +4,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: black-baker
-  namespace: <team>
+  namespace: black
   labels:
     app: black-baker
 spec:
