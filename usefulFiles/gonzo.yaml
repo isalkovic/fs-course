@@ -3,24 +3,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: <team>-gonzo
-  namespace: <team>
+  name: black-gonzo
+  namespace: black
   labels:
-    app: <team>-gonzo
+    app: black-gonzo
 spec:
   selector:
     matchLabels:
-      app: <team>-gonzo
+      app: black-gonzo
   replicas: 1
   template:
     metadata:
       labels:
-        app: <team>-gonzo
+        app: black-gonzo
     spec:
       containers:
-      - name: <team>-gonzo
+      - name: black-gonzo
         image: ibmicpcoc/gonzo:latest
         imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/gonzo.sh"]
         env:
           - name: APP_NAMESPACE
             valueFrom:
@@ -33,12 +34,12 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: <team>-collector-config
+                name: black-collector-config
                 key: COLLECTOR_CONFIG
           - name: INSTRUCTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: <team>-collector-config
+                name: black-collector-config
                 key: INSTRUCTOR_CONFIG
         resources:
           requests:
