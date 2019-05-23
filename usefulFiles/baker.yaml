@@ -3,22 +3,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: <team>-baker
+  name: black-baker
   namespace: <team>
   labels:
-    app: <team>-baker
+    app: black-baker
 spec:
   selector:
     matchLabels:
-      app: <team>-baker
+      app: black-baker
   replicas: 1
   template:
     metadata:
       labels:
-        app: <team>-baker
+        app: black-baker
     spec:
       containers:
-        name: <team>-baker
+        name: black-baker
         image: ibmicpcoc/baker:latest
         imagePullPolicy: Always
         env:
