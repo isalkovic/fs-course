@@ -33,12 +33,12 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: <team>-collector-config
+                name: black-collector-config
                 key: COLLECTOR_CONFIG
           - name: INSTRUCTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: <team>-collector-config
+                name: black-collector-config
                 key: INSTRUCTOR_CONFIG
         resources:
           requests:
