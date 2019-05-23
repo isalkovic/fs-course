@@ -22,7 +22,7 @@ spec:
         image: ibmicpcoc/eagle:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 4010
+        - containerPort: 4100
         env:
           - name: APP_NAMESPACE
             valueFrom:
@@ -58,7 +58,7 @@ spec:
   type: NodePort
   ports:
     - port: 80
-      targetPort: 4010
+      targetPort: 4100
       protocol: TCP
       name: black-eagle
   selector:
