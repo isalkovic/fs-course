@@ -3,23 +3,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: <team>-doors
-  namespace: <team>
+  name: black-doors
+  namespace: black
   labels:
-    app: <team>-doors
+    app: black-doors
 spec:
   selector:
     matchLabels:
-      app: <team>-doors
+      app: black-doors
   replicas: 1
   template:
     metadata:
       labels:
-        app: <team>-doors
+        app: black-doors
     spec:
       containers:
-      - name: <team>-doors
-        image: ibmicpcoc/doors:last
+      - name: black-doors
+        image: ibmicpcoc/doors:latest
         imagePullPolicy: Always
         env:
           - name: APP_NAMESPACE
@@ -33,12 +33,12 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: <team>-collector-config
+                name: black-collector-config
                 key: COLLECTOR_CONFIG
           - name: INSTRUCTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: <team>-collector-config
+                name: black-collector-config
                 key: INSTRUCTOR_CONFIG
         resources:
           requests:
