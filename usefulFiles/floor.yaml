@@ -3,22 +3,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: <team>-floor
-  namespace: <team>
+  name: black-floor
+  namespace: black
   labels:
-    app: <team>-floor
+    app: black-floor
 spec:
   selector:
     matchLabels:
-      app: <team>-floor
+      app: black-floor
   replicas: 1
   template:
     metadata:
       labels:
-        app: <team>-floor
+        app: black-floor
     spec:
       containers:
-      - name: <team>-floor
+      - name: black-floor
         image: ibmicpcoc/floor:latest
         imagePullPolicy: Always
         command: ["node", "app.js"]
@@ -34,12 +34,12 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: <team>-collector-config
+                name: black-collector-config
                 key: COLLECTOR_CONFIG
           - name: INSTRUCTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: <team>-collector-config
+                name: black-collector-config
                 key: INSTRUCTOR_CONFIG
         resources:
           requests:
