@@ -18,7 +18,7 @@ spec:
         app: black-baker
     spec:
       containers:
-        - name: black-baker
+      - name: black-baker
         image: ibmicpcoc/baker:latest
         imagePullPolicy: Always
         env:
