@@ -3,22 +3,22 @@
 apiVersion: apps/v1    
 kind: Deployment
 metadata:
-  name: <team>-house
-  namespace: <team>
+  name: black-house
+  namespace: black
   labels:
-    app: <team>-house
+    app: black-house
 spec:
   selector:
     matchLabels:
-      app: <team>-house
+      app: black-house
   replicas: 1
   template:
     metadata:
       labels:
-        app: <team>-house
+        app: black-house
     spec:
       containers:
-      - name: <team>-house
+      - name: black-house
         image: ibmicpcoc/house:latest
         imagePullPolicy: Always
         env:
@@ -33,12 +33,12 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: <team>-collector-config
+                name: black-collector-config
                 key: COLLECTOR_CONFIG
           - name: INSTRUCTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: <team>-collector-config
+                name: black-collector-config
                 key: INSTRUCTOR_CONFIG
         resources:
           requests:
