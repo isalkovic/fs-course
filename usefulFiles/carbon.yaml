@@ -3,22 +3,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: <team>-carbon
-  namespace: <team>
+  name: black-carbon
+  namespace: black
   labels:
-    app: <team>-carbon
+    app: black-carbon
 spec:
   selector:
     matchLabels:
-      app: <team>-carbon
+      app: black-carbon
   replicas: 1
   template:
     metadata:
       labels:
-        app: <team>-carbon
+        app: black-carbon
     spec:
       containers:
-      - name: <team>-carbon
+      - name: black-carbon
         image: ibmicpcoc/carbon:latest
         imagePullPolicy: Always
         env:
@@ -33,14 +33,14 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: <team>-collector-config
+                name: black-collector-config
                 key: COLLECTOR_CONFIG
           - name: INSTRUCTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: <team>-collector-config
+                name: black-collector-config
                 key: INSTRUCTOR_CONFIG
         resources:
           requests:
-            cpu: 25000m
+            cpu: 250m
             memory: 100Mi
