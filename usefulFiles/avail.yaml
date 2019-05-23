@@ -3,22 +3,22 @@
 apiVersion: apps/v1    
 kind: Deployment
 metadata:
-  name: <team>-avail
-  namespace: <team>
+  name: black-avail
+  namespace: black
   labels:
-    app: <team>-avail
+    app: black-avail
 spec:
   selector:
     matchLabels:
-      app: <team>-avail
+      app: black-avail
   replicas: 1
   template:
     metadata:
       labels:
-        app: <team>-avail
+        app: black-avail
     spec:
       containers:
-      - name: <team>-avail
+      - name: black-avail
         image: ibmicpcoc/avail:latest
         imagePullPolicy: Always
         command: ["/bin/bash", "-c", "/app/avail.sh"]
@@ -34,12 +34,12 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: <team>-collector-config
+                name: black-collector-config
                 key: COLLECTOR_CONFIG
           - name: INSTRUCTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: <team>-collector-config
+                name: black-collector-config
                 key: INSTRUCTOR_CONFIG
         resources:
           requests:
